@@ -1,0 +1,146 @@
+package com.example.demoapi.model;
+
+import lombok.Getter;
+import lombok.Setter;
+
+import java.math.BigDecimal;
+
+@Getter
+@Setter
+public class CuoiKy {
+   double thuNhapKhac_; double
+           chiPhiKhac_; double
+           bdsdauTu154_; double
+           nguyenGia158_; double
+           noPhaiTra300_; double
+           nguyenGia151_; double
+           tienTonDauKy_; double
+           tienMuaTSCD_; double
+           lcttuHDDT_; double
+           loiNhuanKhac_; double
+           dauTuTaiChinh111_; double
+           giaTriHaoMonLuyKe159_; double
+           phaiTraNoiBo317_; double
+           vayVaNoThueTC316_; double
+           duPhongPhaiTra318_; double
+           taiSanCoDinh150_; double
+           duPhongPhaiThuKhoDoi139_; double
+           hangTonKho141_; double
+           xdcbdoDang210_; double
+           dauTuNamGiuDenNgayDaoHan120_; double
+           dauTuGopVonVaoDVK121_; double
+           thueGTGTDuocKhauTru212_; double
+           vonDauTuCuaCSH411_; double
+           thangDuVonCoPhan412_; double
+           traTruocChoNguoiBan132_; double
+           nguoiMuaTraTienTruoc312_; double
+           tienVaCacKhoanTuongDuong110_; double
+           taiSanThieuChoXuLy135_; double
+           phaiTraNguoiBan311_; double
+           duPhongGiamGiaHTK149_; double
+           taiSanKhac211_; double
+           vonKinhDoanhDVTrucThuoc133_; double
+           hangTonKho140_; double
+           thueVaCacKhoanPhaiNopNN313_; double
+           duPhongTonThatDTTC129_; double
+           phaiThuCuaKhachHang131_; double
+           chungKhoanKinhDoanh112_; double
+           phaiTraNguoiLaoDong314_; double
+           taiSanKhac213_; double
+           phaiTraKhac315_; double
+           quyKhenThuongPhucLoi319_; double
+           quyPhatTrienKHCN320_; double
+           vonChuSoHuu400_; double
+           tongConTaiSan200_; double
+           phaiThuKhac134_; double
+           giaTriHaoMonLuyKe152_; double
+           cacKhoanPhaiThu130_; double
+           chenhLechTyGiaHoiDoai415_; double
+           chiPhiThueTNDNHienHanh_; double
+           chiPhiHoatDongTaiChinh_; double
+           dtthuanVeBanHangVaCungCapDV_; double
+           giaVonBanhang_; double
+           chiPhiLaiVay_LCTT_GianTiep_; double
+           coPhieuQuy414_; double
+           cacKhoanDieuChinhKhac_; double
+           tangGiamHangTonKho_; double
+           cacKhoanDuPhong_; double
+           tangGiamCacKhoanPhaiThu_; double
+           tangGiamCacKhoanPhaiTra_; double
+           chiPhiThueTNDNHoanLai_; double
+           loiIchCuaCoDongKhongKiemSoat_; double
+           loiNhuanSauThueTNDN_; double
+           lnthuanTuHDKD_; double
+           loiNhuanTruocThue_; double
+           laiSuyGiamTrenCoPhieu_; double
+           cacKhoanGiamTruDoanhThu_; double
+           chiPhiQuanLyDoanhNghiep_; double
+           loiNhuanSauThueCuaCongTyMe_; double
+           lngopVeBanHangVaCungCapDV_; double
+           cacQuyThuocVonCSH416_; double
+           vonKhacCuaCSH413_; double
+           tongLoiNhuanKeToanTruocThue_; double
+           laiCoBanTrenCoPhieu_; double
+           doanhThuBanHangVaCungCapDV_; double
+           dieuChinhChoCacKhoan_; double
+           chiPhiLaiVay_KQKD_; double
+           khauHaoTaiSanCoDinh_; double
+           laiLoTuHoatDongDauTu_; double
+           tongCongNguonVon500_; double
+           doanhThuHoatDongTaiChinh_; double
+           chiPhiBanHang_; double
+           laiLoCongTyLKLD_; double
+           thueTNDNDaNop_; double
+           lctthuanTuHDKD_; double
+           anhHuongCuaThayDoiTyGia_; double
+           tienChiDauTuGopVonVaoDVK_; double
+           tienVaTuongDuongTienDauKy_; double
+           tangGiamChungKhoanKinhDoanh_; double
+           tangGiamChiPhiTraTruoc_; double
+           tienVaTuongDuongTienCuoiKy_; double
+           tienThuHoiDauTuVonVaoDVK_; double
+           tienChiVonGopChoCSH_; double
+           thueThuNhapDoanhNghiepDaNop_; double
+           tienThuTuDiVay_; double
+           tienTraChoNguoiCungCapHHDV_; double
+           tienTraNoGocVay_; double
+           tienTraNoGocThueTC_; double
+           lctthuanTuHDTC_; double
+           tienTonCuoiKy_; double
+           tienChiTraNoThueTaiChinh_; double
+           tienTraChoNguoiLaoDong_; double
+           tienChiTraNoGocVay_; double
+           tienChiKhacChoHDKD_; double
+           tienThuThanhLyNhuongBanTSCD_; double
+           tienChiChoVayMuaCongCuNoDVK_; double
+           thuTienBanHang_; double
+           coTucLoiNhuanTraChoCSH_; double
+           tienThuKhacTuHDKD_; double
+           lctthuanTrongKy_; double
+           tienChiTraVonGopChoCSH_; double
+           luuChuyenTienThuanTrongKy_; double
+           tienVayNganHanDaiHanNhanDuoc_; double
+           loiNhuanSauThueChuaPhanPhoi417_; double
+           tienThuKhacTuHoatDongKinhDoanh_; double
+           tienChiKhacChoHoatDongKinhDoanh_; double
+           luuChuyenTienThuanTuHoatDongKinhDoanh_; double
+           laiLoChenhLechTyGiaHoiDoaiChuaThucHien_; double
+           tienThuTuThanhLyNhuongBanTSCDVaTSDaiHanKhac_; double
+           tienLaiVayDaTra_LCTT_GianTiep_; double
+           loiNhuanTuHoatDongKinhDoanhTruocThayDoiVLD_; double
+           tienChiDeMuaSamXayDungTSCDVaTSDaiHanKhac_; double
+           tienChiChoVayMuaCacCongCuNoCuaDonViKhac_; double
+           tienThuLaiChoVayCoTucVaLoiNhuanDuocChia_; double
+           tienThuTuPhatHanhCoPhieuNhanVonGopCuaCSH_; double
+           luuChuyenTienThuanTuHoatDongTaiChinh_; double
+           tienLaiVayDaTra_LCTT_TrucTiep_; double
+           tienThuHoiChoVayBanLaiCongCuNoDVK_; double
+           tienChiDauTuGopVonVaoDonViKhac_; double
+           thuLaiTienChoVayCoTucVaLNDuocChia_; double
+           tienThuHoiChoVayBanLaiCacCongCuNoCuaDVK_; double
+           coTucLoiNhuanDaTraChoChuSoHuu_; double
+           tienThuHoiDauTuGopVonVaoDonViKhac_; double
+           anhHuongThayDoiTyGiaHoiDoaiQuyDoiNgoaiTe_; double
+           luuChuyenTienThuanTuHoatDongDauTu_; double
+           tienThuTuPhatHanhCPNhanVonGopCSH_;
+}
