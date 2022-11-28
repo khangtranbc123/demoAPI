@@ -14,12 +14,13 @@ public class BTCTApiController {
 
     @PostMapping("/GetBCTC")
     public ResponseEntity<TT113> getDetail(@RequestHeader(value = "authorize") String value,
-                                            @RequestBody Batch batch){
+                                            @RequestBody Batch batch) {
         String auth = "IM80gqkhsVRloftQcJvajg==";
         String batchId = "3";
 
-        if(auth.equals(value) && batchId.equals(batch.getBatchID())){
-            TT113 tt113 = new TT113();
+        TT113 tt113 = null;
+        if (auth.equals(value) && batchId.equals(batch.getBatchID())) {
+            tt113 = new TT113();
             DauKy dauKy = new DauKy();
             dauKy.setHangTonKho141(null);
             dauKy.setNguyenGia151(null);
@@ -170,8 +171,8 @@ public class BTCTApiController {
 
             CuoiKy cuoiKy = new CuoiKy();
             cuoiKy.setThuNhapKhac_(200000.0);
-            cuoiKy.setChiPhiKhac_(11);
-            cuoiKy.setBdsdauTu154_(11);
+            cuoiKy.setChiPhiKhac_(0.0);
+            cuoiKy.setBdsdauTu154_(-11);
             cuoiKy.setNguyenGia158_(11);
             cuoiKy.setNoPhaiTra300_(11);
             cuoiKy.setNguyenGia151_(11);
@@ -306,9 +307,10 @@ public class BTCTApiController {
             cuoiKy.setTienThuTuPhatHanhCPNhanVonGopCSH_(123555.0);
             tt113.setCuoiKy(cuoiKy);
             return new ResponseEntity<>(tt113, HttpStatus.OK);
-        }else {
+        } else {
             System.out.println("sai");
-            return null;
+            TT113 tt1131 = new TT113();
+            return new ResponseEntity<>(tt1131, HttpStatus.OK);
         }
 
 
