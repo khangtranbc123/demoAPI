@@ -4,7 +4,7 @@ public class TT200 {
 
     String code;
     Batch batch;
-    dauki1 dauKy;
+    Dauki1 dauKy;
     cuoiky1 cuoiKy;
 
 
@@ -24,11 +24,11 @@ public class TT200 {
         this.batch = batch;
     }
 
-    public dauki1 getDauKy() {
+    public Dauki1 getDauKy() {
         return dauKy;
     }
 
-    public void setDauKy(dauki1 dauKy) {
+    public void setDauKy(Dauki1 dauKy) {
         this.dauKy = dauKy;
     }
 

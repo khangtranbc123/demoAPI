@@ -5,16 +5,16 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
-@Data
-@AllArgsConstructor
+@Getter
+@Setter
 public class cuoiky1 {
     double doanhThuChuaThucHienNganHan_;
     double phaiTraDaiHanNguoiBan_;
-    double tongCongTaiSan_;
+    long tongCongTaiSan_;
     double loiTheThuongMai_;
-    double nguoiMuaTraTienTruoc_;
+    long nguoiMuaTraTienTruoc_;
     double nguoiMuaTraTienTruocDaiHan_;
-    int phaiTraNguoiBan_;
+    long phaiTraNguoiBan_;
     double phaiTraNoiBoVeVonKinhDoanh_;
     double doanhThuChuaThucHienDaiHan_;
     double gopVonLienDoanh_;
@@ -47,7 +47,7 @@ public class cuoiky1 {
     double traiPhieuChuyenDoi_;
     double vonDauTuCuaCSH_;
     double coPhieuUuDai_NoDaiHan_;
-    double vonChuSoHuu410_;
+    Long vonChuSoHuu410_;
     double thangDuVonCoPhan_;
     double duPhongPhaiTraDaiHan_;
     double vayVaNoDaiHan_;
@@ -58,7 +58,7 @@ public class cuoiky1 {
     double taiSanCoDinhVoHinh_;
     double duPhongGiamGiaHangTonKho_;
     double thueGTGTDuocKhauTru_;
-    double nguyenGiaTSCDHH_;
+    Long nguyenGiaTSCDHH_;
     double thueVaCacKhoanPhaiThuNN_;
     double phaiThuDaiHanKhac_;
     double chiPhiTraTruocNganHan_;
@@ -69,8 +69,8 @@ public class cuoiky1 {
     double phaiThuDaiHanCuaKhachHang_;
     double phaiThuDaiHanNoiBo_;
     double phaiThuVeChoVayDaiHan_;
-    double taiSanCoDinhHuuHinh_;
-    double giaTriHaoMonLuyKeTSCDHH_;
+    Long taiSanCoDinhHuuHinh_;
+    Long giaTriHaoMonLuyKeTSCDHH_;
     double cacKhoanPhaiThuDaiHan_;
     double traTruocChoNguoiBanDaiHan_;
     double taiSanCoDinhThueTaiChinh_;
@@ -85,9 +85,9 @@ public class cuoiky1 {
     double thietBiVatTuPhuTungThayTheDaiHan_;
     double cacKhoanPhaiTraPhaiNopNganHanKhac_;
     double quyKhenThuongPhucLoi_NoNganHan_;
-    double giaoDichMuaBanLaiTraiPhieuCP1_;
+    Integer giaoDichMuaBanLaiTraiPhieuCP1_;
     double nguonKinhPhiVaQuyKhac_;
-    double lnstchuaPhanPhoi_;
+    int lnstchuaPhanPhoi_;
     double quyDauTuPhatTrien_;
     double nguonKinhPhiDaHinhThanhTSCD_;
     double nguonVonDauTuXDCB_;
@@ -115,13 +115,13 @@ public class cuoiky1 {
     double loiNhuanTruocThue_;
     double laiSuyGiamTrenCoPhieu_;
     double cacKhoanGiamTruDoanhThu_;
-    double chiPhiQuanLyDoanhNghiep_;
+    Long chiPhiQuanLyDoanhNghiep_;
     double loiNhuanSauThueCuaCongTyMe_;
-    double lngopVeBanHangVaCungCapDV_;
+    Long lngopVeBanHangVaCungCapDV_;
     double tongLoiNhuanKeToanTruocThue_;
     double laiCoBanTrenCoPhieu_;
     double doanhThuBanHangVaCungCapDV_;
-    double dieuChinhChoCacKhoan_;
+    Integer dieuChinhChoCacKhoan_;
     double chiPhiLaiVay_KQKD_;
     double khauHaoTaiSanCoDinh_;
     double laiLoTuHoatDongDauTu_;
