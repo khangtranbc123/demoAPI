@@ -247,4 +247,13 @@ public class CustomerInfoController {
 //        common.setMessageTimestamp("${=(new Date().format(\"yyyy-MM-dd'T'HH:mm:ss\"))}");
         return common;
     }
+    @GetMapping("/get2")
+    public Common qweeewqe() {
+        Common common = new Common();
+        common.setMessageId("01");
+        common.setMessageTimestamp("qưe");
+        common.setTransactionId("dt1");
+        System.out.println(common);
+        return common;
+    }
 }
