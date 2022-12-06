@@ -8,14 +8,14 @@ import lombok.Setter;
 
 @Getter
 @Setter
-@JacksonXmlRootElement(localName = "ns1:Common")
+@JacksonXmlRootElement(localName = "Common")
 public class Common {
-    @JacksonXmlProperty(localName = "ns1:ServiceVersion")
+    @JacksonXmlProperty(localName = "ServiceVersion")
     int ServiceVersion;
-    @JacksonXmlProperty(localName = "ns1:MessageId")
+    @JacksonXmlProperty(localName = "MessageId")
     String MessageId;
-    @JacksonXmlProperty(localName = "ns1:TransactionId")
+    @JacksonXmlProperty(localName = "TransactionId")
     String TransactionId;
-    @JacksonXmlProperty(localName = "ns1:MessageTimestamp")
+    @JacksonXmlProperty(localName = "MessageTimestamp")
     String MessageTimestamp;
 }

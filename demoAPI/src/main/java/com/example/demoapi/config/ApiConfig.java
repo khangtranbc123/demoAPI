@@ -16,8 +16,8 @@ import org.springframework.xml.xsd.XsdSchema;
 @EnableWs
 @Configuration
 public class ApiConfig implements WebMvcConfigurer {
-    @Override
-    public void configureContentNegotiation(final ContentNegotiationConfigurer configurer) {
-        configurer.defaultContentType(MediaType.APPLICATION_XML);
-    }
+//    @Override
+//    public void configureContentNegotiation(final ContentNegotiationConfigurer configurer) {
+//        configurer.defaultContentType(MediaType.APPLICATION_XML);
+//    }
 }

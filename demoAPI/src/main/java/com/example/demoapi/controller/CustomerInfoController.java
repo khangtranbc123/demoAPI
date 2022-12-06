@@ -11,8 +11,9 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/service/vn/party/customer/1")
 public class CustomerInfoController {
-    //    @PostMapping
-//    public ResponseEntity<?> getInfo(@ModelAttribute GetCustomerInfoReq getCustomerInfoReq){
+        @PostMapping
+    public ResponseEntity<Common> getInfo(@RequestBody Common common){
+
 //        String a = getCustomerInfoReq.getBodyRequest().getAccInfo().getAdditionInformation().getNameValuePairs().get(0).getName();
 //        String b = getCustomerInfoReq.getBodyRequest().getAccInfo().getAdditionInformation().getNameValuePairs().get(0).getValue();
 //        String c = getCustomerInfoReq.getBodyRequest().getAccInfo().getAdditionInformation().getNameValuePairs().get(1).getName();
@@ -234,26 +235,31 @@ public class CustomerInfoController {
 //                    "      </io3:GetCustomerInfoRes>\n" +
 //                    "   </soapenv:Body>\n" +
 //                    "</soapenv:Envelope>\n";
-//            return new ResponseEntity<>(result, HttpStatus.OK);
+//            Client client  = new Client();
+//            client.setSourceAppID("dasfsd");
+//            Header header = new Header();
+//            header.setClient(client);
+
+            return new ResponseEntity<>(common, HttpStatus.OK);
 //        }
 //        return null;
-//    }
-    @GetMapping("/get")
-    public Common qwee() {
-        Common common = new Common();
-//        common.setServiceVersion(1);
-//        common.setMessageId("${=java.util.UUID.randomUUID()}");
-//        common.setTransactionId("${=java.util.UUID.randomUUID()}");
-//        common.setMessageTimestamp("${=(new Date().format(\"yyyy-MM-dd'T'HH:mm:ss\"))}");
-        return common;
     }
+//    @GetMapping("/get")
+//    public Common qwee() {
+//        Common common = new Common();
+////        common.setServiceVersion(1);
+////        common.setMessageId("${=java.util.UUID.randomUUID()}");
+////        common.setTransactionId("${=java.util.UUID.randomUUID()}");
+////        common.setMessageTimestamp("${=(new Date().format(\"yyyy-MM-dd'T'HH:mm:ss\"))}");
+//        return common;
+//    }
     @GetMapping("/get2")
-    public Common qweeewqe() {
-        Common common = new Common();
-        common.setMessageId("01");
-        common.setMessageTimestamp("qưe");
-        common.setTransactionId("dt1");
-        System.out.println(common);
-        return common;
+    public ResponseEntity<Common> qweeewqe(@RequestBody  Common common) {
+//        Common common = new Common();
+//        common.setMessageId("01");
+//        common.setMessageTimestamp("qưe");
+//        common.setTransactionId("dt1");
+//        System.out.println(common);
+        return new ResponseEntity<>(common, HttpStatus.OK);
     }
 }

@@ -6,7 +6,7 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Batch {
-    int batchID;
+    String batchID;
     String bieuMauBCTC;
             String loaiBCTC;
     String donViTinh;

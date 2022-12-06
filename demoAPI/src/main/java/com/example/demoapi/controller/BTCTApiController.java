@@ -158,7 +158,7 @@ public class BTCTApiController {
             tt113.setCode("00");
 
             Batch batch1 = new Batch();
-            batch1.setBatchID(3);
+            batch1.setBatchID("3");
             batch1.setBieuMauBCTC("TT133");
             batch1.setLoaiBCTC("Thuế");
             batch1.setDonViTinh("Đồng");
@@ -313,14 +313,14 @@ public class BTCTApiController {
 
     }
 
-    @PostMapping("GetBCTCDetail")
+    @PostMapping("/GetBCTCDetail")
     public ResponseEntity<?> getDetailBCTC(@RequestHeader(value = "authorize") String value,
-                                           @RequestBody Batch batch) {
+                                           @RequestBody B1 batch) {
         String auth = "IM80gqkhsVRloftQcJvajg==";
-        int batchId = 3;
-        int batchId1 = 10193;
+        String batchId = "3";
+        String batchId1 = "10193";
 
-        if (auth.equals(value) && batchId==batch.getBatchID()) {
+        if (auth.equals(value) && batchId.equals(batch.getBatchId())) {
 
             TT113 tt113 = new TT113();
             DauKy dauKy = new DauKy();
@@ -463,7 +463,7 @@ public class BTCTApiController {
             tt113.setDauKy(dauKy);
             tt113.setDauKy(dauKy);
             Batch batch1 = new Batch();
-            batch1.setBatchID(3);
+            batch1.setBatchID("3");
             batch1.setBieuMauBCTC("TT133");
             batch1.setLoaiBCTC("Thuế");
             batch1.setDonViTinh("Đồng");
@@ -532,29 +532,21 @@ public class BTCTApiController {
             cuoiKy.setCacKhoanDuPhong_(0.0);
             cuoiKy.setTangGiamCacKhoanPhaiThu_(0.0);
             cuoiKy.setTangGiamCacKhoanPhaiTra_(0.0);
-//        cuoiKy.setChiPhiThueTNDNHoanLai_(null);
-//        cuoiKy.setLoiIchCuaCoDongKhongKiemSoat_(null);
             cuoiKy.setLoiNhuanSauThueTNDN_(147147167);
             cuoiKy.setLnthuanTuHDKD_(147147209);
             cuoiKy.setLoiNhuanTruocThue_(0.0);
-//        cuoiKy.setLaiSuyGiamTrenCoPhieu_(11);
             cuoiKy.setCacKhoanGiamTruDoanhThu_(0.0);
             cuoiKy.setChiPhiQuanLyDoanhNghiep_(2894834747.0);
-//        cuoiKy.setLoiNhuanSauThueCuaCongTyMe_(11);
             cuoiKy.setLngopVeBanHangVaCungCapDV_(3789794909.0);
             cuoiKy.setCacQuyThuocVonCSH416_(0.0);
             cuoiKy.setVonKhacCuaCSH413_(0.0);
             cuoiKy.setTongLoiNhuanKeToanTruocThue_(147147167);
-//        cuoiKy.setLaiCoBanTrenCoPhieu_(11);
             cuoiKy.setDoanhThuBanHangVaCungCapDV_(27385134183.0);
             cuoiKy.setDieuChinhChoCacKhoan_(0.0);
-//        cuoiKy.setChiPhiLaiVay_KQKD_(11);
             cuoiKy.setKhauHaoTaiSanCoDinh_(0.0);
             cuoiKy.setLaiLoTuHoatDongDauTu_(0.0);
             cuoiKy.setTongCongNguonVon500_(40059471117.0);
             cuoiKy.setDoanhThuHoatDongTaiChinh_(213545.0);
-//        cuoiKy.setChiPhiBanHang_(11);
-//        cuoiKy.setLaiLoCongTyLKLD_(11);
             cuoiKy.setThueTNDNDaNop_(0.0);
             cuoiKy.setLctthuanTuHDKD_(15772326835.0);
             cuoiKy.setAnhHuongCuaThayDoiTyGia_(0.0);
@@ -569,12 +561,10 @@ public class BTCTApiController {
             cuoiKy.setTienThuTuDiVay_(0.0);
             cuoiKy.setTienTraChoNguoiCungCapHHDV_(-8279091287.0);
             cuoiKy.setTienTraNoGocVay_(0.0);
-//        cuoiKy.setTienTraNoGocThueTC_(11);
             cuoiKy.setLctthuanTuHDTC_(0.0);
             cuoiKy.setTienTonCuoiKy_(4581979117.0);
             cuoiKy.setTienChiTraNoThueTaiChinh_(0.0);
             cuoiKy.setTienTraChoNguoiLaoDong_(-2034945382);
-//        cuoiKy.setTienChiTraNoGocVay_(11);
             cuoiKy.setTienChiKhacChoHDKD_(0.0);
             cuoiKy.setTienThuThanhLyNhuongBanTSCD_(0.0);
             cuoiKy.setTienChiChoVayMuaCongCuNoDVK_(-11872444113.0);
@@ -594,15 +584,12 @@ public class BTCTApiController {
             cuoiKy.setTienLaiVayDaTra_LCTT_GianTiep_(0.0);
             cuoiKy.setLoiNhuanTuHoatDongKinhDoanhTruocThayDoiVLD_(0.0);
             cuoiKy.setTienChiDeMuaSamXayDungTSCDVaTSDaiHanKhac_(0.0);
-//        cuoiKy.setTienChiChoVayMuaCacCongCuNoCuaDonViKhac_(11);
             cuoiKy.setTienThuLaiChoVayCoTucVaLoiNhuanDuocChia_(0.0);
             cuoiKy.setTienThuTuPhatHanhCoPhieuNhanVonGopCuaCSH_(0.0);
             cuoiKy.setLuuChuyenTienThuanTuHoatDongTaiChinh_(0.0);
             cuoiKy.setTienLaiVayDaTra_LCTT_TrucTiep_(0.0);
-//        cuoiKy.setTienThuHoiChoVayBanLaiCongCuNoDVK_(11);
             cuoiKy.setTienChiDauTuGopVonVaoDonViKhac_(0.0);
             cuoiKy.setThuLaiTienChoVayCoTucVaLNDuocChia_(0.0);
-//        cuoiKy.setTienThuHoiChoVayBanLaiCacCongCuNoCuaDVK_(11);
             cuoiKy.setCoTucLoiNhuanDaTraChoChuSoHuu_(0.0);
             cuoiKy.setTienThuHoiDauTuGopVonVaoDonViKhac_(0.0);
             cuoiKy.setAnhHuongThayDoiTyGiaHoiDoaiQuyDoiNgoaiTe_(0.0);
@@ -626,13 +613,13 @@ public class BTCTApiController {
 
 
 
-        } else if (auth.equals(value) && batchId1==batch.getBatchID()) {
+        } else if (auth.equals(value) && batchId1.equals(batch.getBatchId())) {
             TT200 tt200 = new TT200();
 
             tt200.setCode("00");
 
             Batch batch1 = new Batch();
-            batch1.setBatchID(10193);
+            batch1.setBatchID("10193");
             batch1.setBieuMauBCTC("TT200");
             batch1.setLoaiBCTC("Thuế");
             batch1.setDonViTinh("Đồng");
