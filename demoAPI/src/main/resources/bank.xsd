@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:tns="http://tpb.vn/gen"
+           targetNamespace="http://tpb.vn/gen"
+           elementFormDefault="qualified">
+
+    <!-- REQUEST -->
+    <xs:complexType name="UserDetail">
+        <xs:sequence>
+            <xs:element name="UserId" type="xs:string" />
+            <xs:element name="UserPassword" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Client">
+        <xs:sequence>
+            <xs:element name="SourceAppID" type="xs:string" />
+            <xs:element name="UserDetail" type="tns:UserDetail" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Common">
+        <xs:sequence>
+            <xs:element name="ServiceVersion" type="xs:string" />
+            <xs:element name="MessageId" type="xs:string" />
+            <xs:element name="TransactionId" type="xs:string" />
+            <xs:element name="MessageTimestamp" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Header">
+        <xs:sequence>
+            <xs:element name="Common" type="tns:Common" />
+            <xs:element name="Client" type="tns:Client" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AuxInfo">
+        <xs:sequence>
+            <xs:element name="Xref" type="xs:string" />
+            <xs:element name="FunctionCode" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="NameValuePairs">
+        <xs:sequence>
+            <xs:element name="Name" type="xs:string" />
+            <xs:element name="Value" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AccInfo">
+        <xs:sequence>
+            <xs:element name="CIFNo" type="xs:string" />
+            <xs:element name="AdditionInformation">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="NameValuePairs" type="tns:NameValuePairs" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="BodyRequest">
+        <xs:sequence>
+            <xs:element name="AuxInfo" type="tns:AuxInfo" />
+            <xs:element name="AccInfo" type="tns:AccInfo"/>
+        </xs:sequence>
+    </xs:complexType>
+    <!-- RESPONSE -->
+    <xs:complexType name="ResponseStatus">
+        <xs:sequence>
+            <xs:element name="Status" type="xs:string" />
+            <xs:element name="GlobalErrorCode" type="xs:string"/>
+            <xs:element name="GlobalErrorDescription" type="xs:string"/>
+            <xs:element name="ErrorInfo" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="AddressInfo">
+        <xs:sequence>
+            <xs:element name="Address" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="MailAddress">
+        <xs:sequence>
+            <xs:element name="Name" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ContactInfo">
+        <xs:sequence>
+            <xs:element name="AddressInfo" type="tns:AddressInfo" />
+            <xs:element name="MailAddress" type="tns:MailAddress" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="Party">
+        <xs:sequence>
+            <xs:element name="PartyInfo">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="PersonalPartyInfo">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="CIFNo" type="xs:string" />
+                                    <xs:element name="FullName" type="xs:string" />
+                                    <xs:element name="ContactInfo" type="tns:ContactInfo" />
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CustInfo">
+        <xs:sequence>
+            <xs:element name="CustomerType" type="xs:string" />
+            <xs:element name="CorporateTaxIdentNumb" type="xs:string" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ListCustInfo">
+        <xs:sequence>
+            <xs:element name="Party" type="tns:Party" />
+            <xs:element name="CustInfo" type="tns:CustInfo" />
+            <xs:element name="AccInfo" type="tns:AccInfo" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="BodyResponse">
+        <xs:sequence>
+            <xs:element name="ListCustInfo" type="tns:ListCustInfo" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- WRAPPER -->
+    <xs:element name="GetCustomerInfoReq">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Header" type="tns:Header" />
+                <xs:element name="BodyRequest" type="tns:BodyRequest" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="GetCustomerInfoRes">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="Header" type="tns:Header" />
+                <xs:element name="ResponseStatus" type="tns:ResponseStatus" />
+                <xs:element name="BodyResponse" type="tns:BodyResponse" />
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>
