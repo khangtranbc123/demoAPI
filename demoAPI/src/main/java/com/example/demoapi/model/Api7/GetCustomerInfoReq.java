@@ -7,7 +7,10 @@ import lombok.Setter;
 
 @Getter
 @Setter
+@JacksonXmlRootElement(localName = "ns:GetCustomerInfoReq")
 public class GetCustomerInfoReq {
+    @JacksonXmlProperty(localName = "ns1:Header")
     Header header;
+    @JacksonXmlProperty(localName = "ns:BodyRequest")
     BodyRequest bodyRequest;
 }
