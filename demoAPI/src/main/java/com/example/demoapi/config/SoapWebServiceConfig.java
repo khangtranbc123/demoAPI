@@ -21,7 +21,7 @@ public class SoapWebServiceConfig extends WsConfigurerAdapter {
         MessageDispatcherServlet servlet = new MessageDispatcherServlet();
         servlet.setApplicationContext(context);
         servlet.setTransformWsdlLocations(true);
-        return new ServletRegistrationBean(servlet, "/soapWS/*");
+        return new ServletRegistrationBean(servlet, "/service/vn/party/customer/1/*");
     }
 
 
@@ -35,7 +35,7 @@ public class SoapWebServiceConfig extends WsConfigurerAdapter {
 
         DefaultWsdl11Definition definition = new DefaultWsdl11Definition();
         definition.setSchema(userSchema);
-        definition.setLocationUri("/soapWS");
+        definition.setLocationUri("/service/vn/party/customer/1");
         definition.setPortTypeName("UserServicePort");
         definition.setTargetNamespace("http://tpb.vn/gen");
         return definition;

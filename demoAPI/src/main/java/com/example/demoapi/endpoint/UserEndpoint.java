@@ -1,12 +1,12 @@
 package com.example.demoapi.endpoint;
 
 
+import com.example.demoapi.model.soapFake.gen.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
 import org.springframework.ws.server.endpoint.annotation.PayloadRoot;
 import org.springframework.ws.server.endpoint.annotation.RequestPayload;
 import org.springframework.ws.server.endpoint.annotation.ResponsePayload;
-import vn.tpb.gen.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,6 @@ public class UserEndpoint {
             localPart = "GetCustomerInfoReq")
     @ResponsePayload
     public GetCustomerInfoRes getbank(@RequestPayload GetCustomerInfoReq request) {
-        System.out.println(request.getHeader().getCommon().getMessageId());
 
         GetCustomerInfoRes response = new GetCustomerInfoRes();
         Header header = new Header();
@@ -44,9 +43,9 @@ public class UserEndpoint {
         responseStatus.setErrorInfo("");
         responseStatus.setGlobalErrorDescription("00");
         responseStatus.setGlobalErrorDescription("no one");
-
         BodyResponse bodyResponse = new BodyResponse();
         ListCustInfo info = new ListCustInfo();
+
         List<ListCustInfo> infoList = new ArrayList<>();
         infoList.add(info);
         bodyResponse.setListCustInfo(infoList);
