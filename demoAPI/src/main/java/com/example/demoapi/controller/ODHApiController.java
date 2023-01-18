@@ -1,36 +1,94 @@
 package com.example.demoapi.controller;
-
+import com.example.demoapi.model.Request;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.HashMap;
+
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/wisd-rest2/DataService")
 public class ODHApiController {
-    @PostMapping("/getODH")
-    public String getVui(@RequestBody String p_cifinfo){
-        String id1 =
-                "{"
-                +"\"p_cifinfo\":\"01791798\""
-                +"}";
+    @PostMapping("/ODH_SERVICES/cst_industry")
+    public ResponseEntity<String> getVui(@RequestBody Request request){
+        String id =
+                "01791798";
+
         String ok;
-//        String data = p_cifinfo.replaceAll(" ", "");
-//        System.out.println(p_cifinfo);
-//        System.out.println(data);
-        if(p_cifinfo.equals(id1)){
+       String data = request.getP_cifinfo().replaceAll(" ", "");
+        if(data.equals(id)){
             ok = "{"
                     + "\"results\":"
                     + "{"
                     + "\"cif\":\"01275299\""
                     + ",\"dkkd\":\"01275299\""
-                    + ",\"mst\":\"null\""
+                    + ",\"mst\":null"
                     + ",\"industry\":\"179900\""
                     + ",\"industry_code\":\"CAC H.DONG VA DICH VU KHAC\""
                     + "}"
                     + "}";
-            return ok;
+            return new ResponseEntity<>(ok, HttpStatus.OK);
         }
         else {
             ok = "[]";
-            return ok;
+            return new ResponseEntity<>(ok, HttpStatus.OK);
         }
     }
+
+    @PostMapping("/ODH_SERVICES/cst_ar_info_001")
+    public ResponseEntity<String> getArInfo(@RequestBody Request request){
+        String id =
+                "02501168";
+
+        String ok;
+        String data = request.getP_cifinfo().replaceAll(" ", "");
+        if(data.equals(id)){
+            ok = "{"
+                    + "\"results\":"
+                    + "{"
+                    + "\"cif\":\"02501168\""
+                    + ",\"dkkd\":\"02501168\""
+                    + ",\"mst\": null"
+                    + ",\"duno_sanpham\":\"02501168\""
+                    + ",\"duno_branch\":\"021\""
+                    + ",\"duno_osamount\": 959540.00000"
+                    + "}"
+                    + "}";
+            return new ResponseEntity<>(ok, HttpStatus.OK);
+        }
+        else {
+            ok = "[]";
+            return new ResponseEntity<>(ok, HttpStatus.OK);
+        }
+    }
+
+    @PostMapping("/DMT_SERVICES/cst_info_001")
+    public ResponseEntity<String> getCtsInfo(@RequestBody Request request){
+        String id =
+                "01791798";
+
+        String ok;
+        String data = request.getP_cifinfo().replaceAll(" ", "");
+        if(data.equals(id)){
+            ok = "{"
+                    + "\"results\":"
+                    + "{"
+                    + "\"cif\":\"01791798\""
+                    + ",\"dkkd\":\"******158\""
+                    + ",\"mst\": null"
+                    + ",\"cusdebtstatus\": null"
+                    + ",\"maxdebtgroup\": null"
+                    + ",\"non_fin5\": 999999999.0000000000"
+                    + "}"
+                    + "}";
+            return new ResponseEntity<>(ok, HttpStatus.OK);
+        }
+        else {
+            ok = "[]";
+            return new ResponseEntity<>(ok, HttpStatus.OK);
+        }
+    }
+
 }
