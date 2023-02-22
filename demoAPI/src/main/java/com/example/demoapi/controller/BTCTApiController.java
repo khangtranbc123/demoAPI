@@ -6,6 +6,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Objects;
+
 @RestController
 @RequestMapping("/OCREcmAPI/services/BCTCService")
 public class BTCTApiController {
@@ -24,8 +26,25 @@ public class BTCTApiController {
         batch.setKhac("thong tin chung");
         bctc.setCode("00");
         bctc.setReportType("Thuế");
-        return new ResponseEntity<>(bctc, HttpStatus.OK);
-
+        if (req.getCif() == null || req.getCif().trim().equals("")  || req.getMst() == null || req.getDkkd() == null || req.getMst().trim().equals("") || req.getDkkd().trim().equals("")){
+            BCTC bctc1 = new BCTC();
+            bctc1.setCode("02");
+            return new ResponseEntity<>(bctc1, HttpStatus.OK);
+        } else if (!Objects.equals(req.getDkkd(), "0101098802")){
+            BCTC bctc1 = new BCTC();
+            bctc1.setCode("01");
+            return new ResponseEntity<>(bctc1, HttpStatus.OK);
+        } else if (req.getNamBCTC() == null) {
+            BCTC bctc1 = new BCTC();
+            bctc1.setCode("03");
+            return new ResponseEntity<>(bctc1, HttpStatus.OK);
+        } else if (!Objects.equals(value, auth)) {
+            BCTC bctc1 = new BCTC();
+            bctc1.setCode("010");
+            return new ResponseEntity<>(bctc1, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(bctc, HttpStatus.OK);
+        }
     }
 
     @PostMapping("/GetBCTCDetail")
