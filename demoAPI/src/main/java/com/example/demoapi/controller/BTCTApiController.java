@@ -14,7 +14,7 @@ public class BTCTApiController {
 
     @PostMapping("/GetBCTC")
     public ResponseEntity<?> getDetail(@RequestHeader(value = "authorize") String value,
-                                       @RequestBody BCTCReq req) {
+                                            @RequestBody BCTCReq req) {
         String auth = "IM80gqkhsVRloftQcJvajg==";
         BCTC bctc = new BCTC();
         bctc.setBatchID("3");

@@ -8,7 +8,7 @@ import lombok.Setter;
 public class Batch {
     String batchID;
     String bieuMauBCTC;
-    String loaiBCTC;
+            String loaiBCTC;
     String donViTinh;
 
     String nguonDuLieu;
