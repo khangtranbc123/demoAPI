@@ -1,5 +1,6 @@
 package com.example.demoapi.config;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -31,6 +32,7 @@ public class SoapWebServiceConfig extends WsConfigurerAdapter {
     }
 
     @Bean
+    @Autowired
     public DefaultWsdl11Definition defaultWsdl11Definition(XsdSchema userSchema) {
 
         DefaultWsdl11Definition definition = new DefaultWsdl11Definition();
