@@ -1,16 +1,94 @@
 package com.example.demoapi.controller;
 
 import com.example.demoapi.model.CIC;
+import com.example.demoapi.model.CicResponse.*;
 import com.example.demoapi.model.Model;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/gateway/CIC_CheckCIC_NoiBo")
 public class CICApiController {
     @PostMapping
-    public ResponseEntity<String> getDetail(@RequestBody CIC cic){
+    public ResponseEntity<String> getDetail(@RequestBody CIC cic) throws JsonProcessingException {
+        TTPHAPLY ttphaply = new TTPHAPLY();
+        ttphaply.setMACIC(null);
+        ttphaply.setTENKH("NGUYÊ~N HA` NAM");
+        ttphaply.setDIACHI_TRUSOCHINH("HN");
+        ttphaply.setCMND_HC("968257413589");
+        ttphaply.setGIAYTOKHAC("");
+        ttphaply.setDKKD("");
+        ttphaply.setMST("");
+        ttphaply.setTGD_GD("");
+        ttphaply.setNGUOI_DAIDIENPL("");
+
+        NOIDUNG noidung = new NOIDUNG();
+        noidung.setTTPHAPLY(ttphaply);
+
+        TT_NGUOITRACUU tt_nguoitracuu = new TT_NGUOITRACUU();
+        tt_nguoitracuu.setDONVITRACUU("Ngân hàng TMCP Tiên Phong");
+        tt_nguoitracuu.setDIACHI("Tòa nhà TPbank, s? 57, ph? Lý Thu?ng Ki?t, phu?ng Tr?n Hung Ð?o, qu?n Hoàn Ki?m, Thành ph? Hà N?i, Vi?t Nam");
+        tt_nguoitracuu.setTENTRUYCAP("h01358001hang2");
+        tt_nguoitracuu.setDTHOAI("");
+        tt_nguoitracuu.setMSPHIEU("TPB220722.0004.CC06");
+        tt_nguoitracuu.setTHOIGIANYC("20220722 08:35");
+        tt_nguoitracuu.setTHOIGIANTL("20220722 08:36");
+        tt_nguoitracuu.setTT_TRALOI("0");
+
+        NOIDUNG_BANTLTIN noidung_bantltin = new NOIDUNG_BANTLTIN();
+        noidung_bantltin.setNOIDUNG(noidung);
+        noidung_bantltin.setTT_NGUOITRACUU(tt_nguoitracuu);
+
+        XML xml = new XML();
+        xml.setNOIDUNG_BANTLTIN(noidung_bantltin);
+
+        ITEM item = new ITEM();
+        item.setCUSTOMERNAME("Nguyễn Văn 3317");
+        item.setCUSTOMER_ID("010003317");
+        item.setTYPE("04");
+        item.setXML(xml);
+
+        ITEM item2 = new ITEM();
+        item2.setCUSTOMERNAME("NGUyễn Minh");
+        item2.setCUSTOMER_ID("01023123");
+        item2.setTYPE("04");
+        item2.setXML(xml);
+
+        Items items = new Items();
+        List<ITEM> list = new ArrayList<>();
+        list.add(item2);
+        list.add(item);
+        items.setList_ITEM(list);
+
+        RESP resp = new RESP();
+        resp.setCODE("000");
+        resp.setDESC("Thành công!");
+
+        Data dataResp = new Data();
+        dataResp.setItems(items);
+        dataResp.setRESP(resp);
+
+        Cic cicResp = new Cic();
+        cicResp.setDATA(dataResp);
+        cicResp.setRESP_CODE("000");
+        cicResp.setRESP_DESC("Thành công.");
+        cicResp.setTRANS_ID("0580adbb-e148-46df-8536-67c80697c70d");
+
+        ObjectMapper xmlMapper = new XmlMapper();
+        String response = xmlMapper.writeValueAsString(cicResp);
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_XML);
+
+
         if(cic.getINFO().getAPI_KEY().equals("")||
                 cic.getINFO().getAPI_USERID().equals("")||
                 cic.getINFO().getAPI_USERPASSWORD().equals("")){
@@ -37,13 +115,11 @@ public class CICApiController {
         if (!cic.getINFO().getAPI_USERID().equals("EBANKIT") || !cic.getINFO().getAPI_USERPASSWORD().equals("RVNCMQ==")){
             return new ResponseEntity<>(data006, HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity<>(data, HttpStatus.OK);
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
-//    @GetMapping("/xml")
-//    public ResponseEntity<CIC> getDetail2(@RequestBody CIC cic){
-//        System.out.println(cic.getINFO().getAPI_USERID());
-//        return new ResponseEntity<>(cic, HttpStatus.OK);
-//    }
+
+
 
     @GetMapping("/xml/name")
     public ResponseEntity<String> getName(@RequestBody Model model){

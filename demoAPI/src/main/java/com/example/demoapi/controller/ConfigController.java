@@ -1,13 +1,17 @@
 package com.example.demoapi.controller;
 
+import com.example.demoapi.model.CuoiKy;
 import com.example.demoapi.model.DauKy;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.sql.Array;
+
 @RestController
 @RequestMapping("/api")
-public class ConfigController {
+public class configController {
     @GetMapping("/get-data")
     public String getData(){
         String data = " double thuNhapKhac_; Double\n" +
