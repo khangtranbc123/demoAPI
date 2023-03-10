@@ -5,5 +5,5 @@ import lombok.Setter;
 
 @Getter@Setter
 public class B1 {
-    String batchId;
+    String batchID;
 }
